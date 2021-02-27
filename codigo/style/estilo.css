@@ -1,0 +1,447 @@
+:root{ /* criar uma variável de cores para caso precise mudar não precisa ir uma por uma */
+    --vermelho:#E50914;
+    --preta: #141414;
+    --verde: #159981;
+    --amarela: #E6B920;
+}
+
+*{
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box; /* garante o limite do tamanho definido da caixa, nenhum elemento, mesmo que maior irá ltrapassar a barreira da caixa. */
+}
+
+/* elementos base */
+body{
+    background:var(--preta);
+    font-family: 'Montserrat', sans-serif;
+    color: white;
+}
+
+header .container{
+    display: flex; /* joga todos os elementos em linha, como row */
+    flex-direction: row;
+    align-items: center; /* centraliza na vertical */
+    justify-content: space-between; /* distância entre os elementos - de maneira horizontal*/
+}
+
+header .logo{
+    margin-left: 5px;
+    color: var(--vermelho);
+    font-family: 'Arial Black', Times;
+    font-size: 40px;
+}
+
+header nav a{
+    text-decoration: none;
+    color: #AAA;
+    margin-right: 10px;
+}
+
+header nav a:hover{
+    color: #fff;
+}
+
+/* Filme principal - somente a filha direta herda as caracteristicas passadas aqui */
+.filme-principal{
+    font-size: 16px;
+    background: linear-gradient(to right, rgba(0,0,0,.80), rgba(0,0,0,.40) 100%), url('/imagens/capa_deathparade.jpg');
+
+    height: 500px;
+    background-size: cover; /* especificar o tamanho da imagem dentro da caixa */
+    background-position: 0px -150px; /* arruma a posição dentro da caixa */
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* de maneira vertical - centralizado*/
+    align-items: flex-start; /* elementos sempre começam da esquerda, e não do centro */
+}
+
+.filme-principal .descricao{
+    font-family: 'Newsreader', serif;
+    font-size: 18px;
+    font-weight: 200;
+    line-height: 20px;
+    margin-top: 20px;
+    margin-bottom: 40px;
+    text-shadow: 3px 3px 12px #000;
+}
+
+.descricao h4{
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.filme-principal .titulo{
+    margin-top: 5%;
+    font-size: 40px;
+    /*font-family: 'Trebuchet MS', Arial, sans-serif;*/
+    text-shadow: 3px 3px 12px #000;
+}
+
+#age{
+    border: 1px solid #AAA;
+    background-color: rgba(255,255,255,.15);
+    border-radius: 2px;
+    font-size: 16px;
+    font-weight: lighter;
+    padding: 2px;
+    margin-right: 8px;
+}
+
+#bolinha{
+    word-spacing: 10px;
+}
+
+/****** NOTA DA SÉRIE *******/
+
+.nota{
+    margin-right: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+#nota_cor{
+    background-color: #209FE6;
+    padding: 1px 2px;
+    border-radius: 4px;
+    width: 100%;
+    font-size: 14px;
+
+    display: flex;
+    justify-content: space-evenly;
+}
+
+#nota_numero{
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 4px;
+    text-shadow: 1px 1px 12px black;
+}
+
+.chamada{
+    margin-top: 40px;
+}
+
+hr{
+    margin-top: 10PX;
+    margin-bottom: 20px;
+    background-color: rgba(255, 255, 255, 0.3);
+    border: none;
+    color: white;
+    height: 0.5px;
+}
+
+/************** MENU PARA INTERAGIR COM A SERIE ***************/
+
+.acao{
+    margin-top: 20px;
+    width:10%;
+
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.acao_wrapper{
+    display:flex;
+    /*justify-content: center;*/
+    align-items: center;
+    flex-direction: column;
+}
+
+.acao i{
+    background-color: rgba(0,0,0,.60);
+    border-radius: 100%;
+    padding: 14px;
+    margin-right: 4px;
+    font-size: 14px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/* Legenda com hover - precisa entender por que ta ocupando espaço e não funciona no hover */
+.legenda{
+    display: flex;
+    visibility: hidden;
+    justify-content: center;
+    align-items: center;
+
+
+    background-color: rgba(0,0,0,.60);
+    /*background: none repeat scroll 0 0 #F8F8F8;*/
+    color:white;
+    font-size: 10px;
+    height: 30px;
+    letter-spacing: 1px;
+    line-height: 30px;
+    margin: 4px 0;
+    position: relative;
+    text-align: center;
+    /*top: 40px;
+    left: -10%;*/
+    padding:8px 20px;
+}
+
+/*.legenda:after{
+    content:'Marcar como assistido';
+    position:absolute;
+    bottom:-10px;
+    width:10px;
+    height:10px;
+    border-bottom:5px solid #dfdfdf;
+    border-right:5px solid #dfdfdf;
+    background:#f8f8f8;
+    left:50%;
+    margin-left:-5px;
+    -moz-transform:rotate(45deg);
+    -webkit-transform:rotate(45deg);
+    transform:rotate(45deg);
+}*/
+
+.acao_wrapper i:hover .legenda{
+    display:block;
+    position:absolute;
+    bottom:-10px;
+    width:10px;
+    height:10px;
+    border-bottom:5px solid #dfdfdf;
+    border-right:5px solid #dfdfdf;
+    background:#f8f8f8;
+    left:50%;
+    margin-left:-5px;
+    -moz-transform:rotate(45deg);
+    -webkit-transform:rotate(45deg);
+    transform:rotate(45deg);
+}
+
+/* ATÉ AQUI */
+
+.fa-star{
+    color: var(--amarela);
+}
+
+.botao{
+    background-color: rgba(0,0,0,0.3);
+    border: 1px solid white;
+    color: white;
+    padding: 15px 30px;
+    margin-right: 15px;
+    font-size: 12px;
+
+    cursor: pointer;
+    transition: .4s ease all;
+}
+
+.botao:hover{
+    background-color: white;
+    color: black;
+}
+
+.botao_cta{
+    border: none;
+    background-color:var(--verde);
+}
+
+.botao i{
+    margin-right: 8px;
+}
+
+.container{
+    margin: 0% 10%;
+}
+
+.filme-principal .container{
+    width: 70%;
+}
+
+.box-filme{
+    height: 100%;
+    width: 100%;
+    display: block;
+}
+
+/************ INFORMAÇÕES DA SÉRIE ************/
+.info{
+    margin-top: 20px;
+    display: flex;
+    justify-content: start;
+    align-items: flex-start;
+    width: 100%;
+}
+
+.info_esq{
+    display: flex;
+    align-items: flex-start;
+    justify-content: start;
+}
+
+.info_dir{
+    /*display: flex;
+    align-items: start;
+    justify-content: space-around;
+    flex-direction: column;*/
+
+    margin-left: 40px;
+    display: flex;
+    flex-direction: row;
+}
+
+.menu_info{
+    display: flex;
+    align-items: center;
+    justify-content: start;
+}
+
+.info_esq img{
+    width: 220px;
+}
+
+.conteudo{
+    display: flex;
+    align-items: start;
+    justify-content: space-between;
+    flex-direction: column;
+
+    border-top: .2px solid white;
+    border-bottom: .2px solid white;
+    border-radius: 2px;
+    padding: 20px 20px 0px 20px;
+}
+
+.conteudo_linha{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 20px;
+    font-size: 14px;
+}
+
+.conteudo_linha h4{
+    margin-right: 20px;
+    font-size: 16px;
+}
+
+/*.conteudo_linha h4{
+    margin-right: 20px;
+    background-color: rgba(255, 255, 255, 0.7);
+    padding: 0px 1px;
+    border-radius: 1px;
+    color: var(--preta);
+}*/
+
+.info_branca{
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.info_branca_conteudo{
+    background-color: white;
+    color: var(--preta);
+    border-radius: 2px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.info_branca_conteudo h3{
+    margin-bottom: 12px;
+}
+
+.info_branca_conteudo h4{
+    font-weight: 700;
+}
+
+.tags_info_branca{
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    flex-direction: column;
+    
+    overflow-wrap: break-word;
+    width: 100%;
+}
+
+.wrapper{
+    width: fit-content;
+    display: contents;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.tags_info_branca p{
+    background-color: whitesmoke;
+    border: 1px solid gray;
+    border-radius: 2px;
+    margin: 4px;
+    padding: 2px;
+}
+
+.botao_texto{
+    background: none;
+    border: none;
+    color: white;
+    align-items: center;
+    border-bottom: 2px solid transparent; /* Colocar o border antes para impedir que o border mexa nos conteúdos abaixo durante o hover */
+
+    margin-right: 20px;
+    padding-bottom: 2px;
+    cursor: pointer;
+    transition: .4s ease all;
+
+    font-size: 16px;
+}
+
+.botao_texto:hover{
+    border-bottom: 2px solid var(--vermelho);
+    align-items: flex-start;
+}
+
+/*********** ACABA AQUI ***********/
+
+.carrosel-filmes{
+    margin-top: 5px;
+    cursor: pointer;
+}
+
+.carrosel-filmes h4{
+    margin: 20px 0px;
+}
+
+.item{
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    flex-direction: column-reverse;
+}
+
+.item:hover{
+    background-color: rgba(0,0,0,0.7);
+}
+
+.recomendacoes{
+    background-color: rgba(0,0,0,0.7);
+    /*background: var(--vermelho); /* #EA4F57 */
+    padding: 12px 20px;
+    /*border-radius: 0 0 4px 4px;*/
+    width: 100%;
+    position: absolute;
+    /*margin-top: 383px;*/
+
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-direction: column;
+}
